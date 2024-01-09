@@ -1,0 +1,19 @@
+name: Update Web on Image repo changes
+
+on:
+  repository_dispatch:
+    types: [image_upload]
+jobs:
+  update_web:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout image repository
+        uses: actions/checkout@v2
+        with:
+          repository: Azhtian/images
+          token: ${{ secrets.PAT_IMAGE_REPO }}
+        #- name: Process image changes
+        #run:
+
+        #- name:
+        #run:
